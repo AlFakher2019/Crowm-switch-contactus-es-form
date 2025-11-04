@@ -186,8 +186,8 @@
 					err: document.getElementById('Name_error'),
 					required: true,
 					validate: function (value) {
-						if (!value.trim()) return 'El nombre es obligatorio.';
-						if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Introduce un nombre válido (solo letras).';
+					if (!value.trim()) return 'Der Vorname ist erforderlich.';
+					if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Vornamen eingeben (nur Buchstaben).';
 						return '';
 					}
 				},
@@ -196,8 +196,8 @@
 					err: document.getElementById('Name_error'),
 					required: true,
 					validate: function (value) {
-						if (!value.trim()) return 'El apellido es obligatorio.';
-						if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Introduce un apellido válido (solo letras).';
+					if (!value.trim()) return 'Der Nachname ist erforderlich.';
+					if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Nachnamen eingeben (nur Buchstaben).';
 						return '';
 					}
 				},
@@ -206,9 +206,9 @@
 					err: document.getElementById('Email_error'),
 					required: true,
 					validate: function (value) {
-						if (!value.trim()) return 'El correo electrónico es obligatorio.';
+					if (!value.trim()) return 'Die E-Mail-Adresse ist erforderlich.';
 						var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-						if (!emailRegex.test(value)) return 'Formato de correo electrónico no válido.';
+					if (!emailRegex.test(value)) return 'Ungültiges E‑Mail-Format.';
 						return '';
 					}
 				},
@@ -219,8 +219,8 @@
 					validate: function (value) {
 						if (!value.trim()) return '';
 						var digits = (value.match(/\d/g) || []).length;
-						if (digits < 8) return 'Introduce al menos 8 dígitos.';
-						if (!/^[+\d()\-\s]+$/.test(value)) return 'Formato de teléfono no válido.';
+					if (digits < 8) return 'Bitte mindestens 8 Ziffern eingeben.';
+					if (!/^[+\d()\-\s]+$/.test(value)) return 'Ungültiges Telefonnummernformat.';
 						return '';
 					}
 				},
@@ -229,7 +229,7 @@
 					err: document.getElementById('Dropdown_error'),
 					required: true,
 					validate: function (value) {
-						if (!value || value === '-Select-') return 'Selecciona una opción.';
+					if (!value || value === '-Select-') return 'Bitte eine Option auswählen.';
 						return '';
 					}
 				},
@@ -238,8 +238,8 @@
 					err: document.getElementById('SingleLine_error'),
 					required: true,
 					validate: function (value) {
-						if (!value.trim()) return 'Este campo es obligatorio.';
-						if (value.trim().length < 3) return 'Debe tener al menos 3 caracteres.';
+					if (!value.trim()) return 'Dieses Feld ist erforderlich.';
+					if (value.trim().length < 3) return 'Mindestens 3 Zeichen erforderlich.';
 						return '';
 					}
 				},
@@ -248,8 +248,8 @@
 					err: document.getElementById('MultiLine_error'),
 					required: false,
 					validate: function (value) {
-						if (!value.trim()) return '';
-						if (value.trim().length < 5) return 'Debe tener al menos 5 caracteres.';
+					if (!value.trim()) return '';
+					if (value.trim().length < 5) return 'Mindestens 5 Zeichen erforderlich.';
 						return '';
 					}
 				}
@@ -310,3 +310,4 @@
 		})();
 	</script>
 </body>
+</html>
