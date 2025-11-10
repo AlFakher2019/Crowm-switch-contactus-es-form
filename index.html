@@ -219,7 +219,7 @@
 					validate: function (value) {
 						if (!value.trim()) return '';
 						var digits = (value.match(/\d/g) || []).length;
-					if (digits < 8) return 'Bitte mindestens 8 Ziffern eingeben.';
+					if (digits < 10) return 'Bitte mindestens 10 Ziffern eingeben.';
 					if (!/^[+\d()\-\s]+$/.test(value)) return 'Ungültiges Telefonnummernformat.';
 						return '';
 					}
