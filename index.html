@@ -7,14 +7,16 @@
     <script src="js/validation.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</noscript>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    </noscript>
 </head>
 
 <body class="zf-backgroundBg">
@@ -31,7 +33,7 @@
             <input type="hidden" name="zc_gad"
                 value=""><!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
             <div class="zf-templateWrapper">
-                
+
                 <div class="zf-subContWrap zf-topAlign">
                     <ul>
                         <div class="zf-tempFrmWrapper zf-name  zf-namelarge">
@@ -86,7 +88,7 @@
                                                 isCountryCodeEnabled=false fieldType="11"
                                                 id="international_PhoneNumber_countrycode" valType="number"
                                                 phoneFormatType="1" placeholder="" />
-                                           </span>
+                                        </span>
                                         <div class="zf-clearBoth"></div>
                                     </div>
                                     <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">
@@ -112,7 +114,7 @@
                                 <div class="zf-clearBoth"></div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="zf-tempFrmWrapper  zf-large "><label class="zf-labelName">
@@ -121,10 +123,16 @@
                     </label>
                     <div class="zf-tempContDiv">
                         <select class="zf-form-sBox" name="Dropdown" checktype="c1">
-                            <option selected="true" value="-Select-">seleccione una opción</option>
-                            <option value="First Choice">First Choice</option>
-                            <option value="Second Choice">Second Choice</option>
-                            <option value="Third Choice">Third Choice</option>
+                            <option value="">Wählen</option>
+                            <option value="Bestellung">Bestellung</option>
+                            <option value="Reparatur">Reparatur</option>
+                            <option value="Garantieregistrierung">Garantieregistrierung</option>
+                            <option value="Lieferung in Länder außerhalb Deutschlands">Lieferung in Länder außerhalb
+                                Deutschlands</option>
+                            <option value="Pod Anfrage">Pod Anfrage</option>
+                            <option value="Zahlung / Rechnung">Zahlung / Rechnung</option>
+                            <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                            <option value="Virtuelle Assistenz">Virtuelle Assistenz</option>
                         </select>
                         <p id="Dropdown_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
                     </div>
@@ -160,154 +168,156 @@
                 <li class="zf-fmFooter"><button class="zf-submitColor">Absenden</button></li>
             </ul>
             <p>Wir verwenden die von Ihnen angegebenen Daten, um auf Ihre Anfrage zu antworten.
-                 Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten verarbeiten 
-                 und welche Rechte Sie haben, finden Sie in unserer <a href="" target="_blank" style="color: #000"><span style="text-decoration: underline" >Datenschutzrichtlinie.</span></a></p>
+                Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten verarbeiten
+                und welche Rechte Sie haben, finden Sie in unserer <a href="" target="_blank" style="color: #000"><span
+                        style="text-decoration: underline">Datenschutzrichtlinie.</span></a></p>
     </div>
     </form>
     </div>
     <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-        var zf_MandArray = ["Name_First","Name_Last", "Dropdown","SingleLine","Email"];
+        var zf_MandArray = ["Name_First", "Name_Last", "Dropdown", "SingleLine", "Email"];
         var zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "Dropdown", "SingleLine", "MultiLine"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];</script>
-	<script>
-		(function () {
-			/* */
-			var form = document.getElementById('form');
-			if (!form) return;
+    <script>
+        (function () {
+            /* */
+            var form = document.getElementById('form');
+            if (!form) return;
 
-			function $(selector) { return form.querySelector(selector); }
+            function $(selector) { return form.querySelector(selector); }
 
-			var fields = {
-				Name_First: {
-					el: $('[name="Name_First"]'),
-					err: document.getElementById('Name_error'),
-					required: true,
-					validate: function (value) {
-					if (!value.trim()) return 'Der Vorname ist erforderlich.';
-					if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Vornamen eingeben (nur Buchstaben).';
-						return '';
-					}
-				},
-				Name_Last: {
-					el: $('[name="Name_Last"]'),
-					err: document.getElementById('Name_error'),
-					required: true,
-					validate: function (value) {
-					if (!value.trim()) return 'Der Nachname ist erforderlich.';
-					if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Nachnamen eingeben (nur Buchstaben).';
-						return '';
-					}
-				},
-				Email: {
-					el: $('[name="Email"]'),
-					err: document.getElementById('Email_error'),
-					required: true,
-					validate: function (value) {
-					if (!value.trim()) return 'Die E-Mail-Adresse ist erforderlich.';
-						var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-					if (!emailRegex.test(value)) return 'Ungültiges E‑Mail-Format.';
-						return '';
-					}
-				},
-				PhoneNumber_countrycode: {
-					el: $('[name="PhoneNumber_countrycode"]'),
-					err: document.getElementById('PhoneNumber_error'),
-					required: false,
-					validate: function (value) {
-						if (!value.trim()) return '';
-						var digits = (value.match(/\d/g) || []).length;
-					if (digits < 10) return 'Bitte mindestens 10 Ziffern eingeben.';
-					if (!/^[+\d()\-\s]+$/.test(value)) return 'Ungültiges Telefonnummernformat.';
-						return '';
-					}
-				},
-				Dropdown: {
-					el: $('[name="Dropdown"]'),
-					err: document.getElementById('Dropdown_error'),
-					required: true,
-					validate: function (value) {
-					if (!value || value === '-Select-') return 'Bitte eine Option auswählen.';
-						return '';
-					}
-				},
-				SingleLine: {
-					el: $('[name="SingleLine"]'),
-					err: document.getElementById('SingleLine_error'),
-					required: true,
-					validate: function (value) {
-					if (!value.trim()) return 'Dieses Feld ist erforderlich.';
-					if (value.trim().length < 3) return 'Mindestens 3 Zeichen erforderlich.';
-						return '';
-					}
-				},
-				MultiLine: {
-					el: $('[name="MultiLine"]'),
-					err: document.getElementById('MultiLine_error'),
-					required: false,
-					validate: function (value) {
-					if (!value.trim()) return '';
-					if (value.trim().length < 5) return 'Mindestens 5 Zeichen erforderlich.';
-						return '';
-					}
-				}
-			};
+            var fields = {
+                Name_First: {
+                    el: $('[name="Name_First"]'),
+                    err: document.getElementById('Name_error'),
+                    required: true,
+                    validate: function (value) {
+                        if (!value.trim()) return 'Der Vorname ist erforderlich.';
+                        if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Vornamen eingeben (nur Buchstaben).';
+                        return '';
+                    }
+                },
+                Name_Last: {
+                    el: $('[name="Name_Last"]'),
+                    err: document.getElementById('Name_error'),
+                    required: true,
+                    validate: function (value) {
+                        if (!value.trim()) return 'Der Nachname ist erforderlich.';
+                        if (!/^[A-Za-zÄÖÜäöüßÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/.test(value)) return 'Bitte einen gültigen Nachnamen eingeben (nur Buchstaben).';
+                        return '';
+                    }
+                },
+                Email: {
+                    el: $('[name="Email"]'),
+                    err: document.getElementById('Email_error'),
+                    required: true,
+                    validate: function (value) {
+                        if (!value.trim()) return 'Die E-Mail-Adresse ist erforderlich.';
+                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+                        if (!emailRegex.test(value)) return 'Ungültiges E‑Mail-Format.';
+                        return '';
+                    }
+                },
+                PhoneNumber_countrycode: {
+                    el: $('[name="PhoneNumber_countrycode"]'),
+                    err: document.getElementById('PhoneNumber_error'),
+                    required: false,
+                    validate: function (value) {
+                        if (!value.trim()) return '';
+                        var digits = (value.match(/\d/g) || []).length;
+                        if (digits < 10) return 'Bitte mindestens 10 Ziffern eingeben.';
+                        if (!/^[+\d()\-\s]+$/.test(value)) return 'Ungültiges Telefonnummernformat.';
+                        return '';
+                    }
+                },
+                Dropdown: {
+                    el: $('[name="Dropdown"]'),
+                    err: document.getElementById('Dropdown_error'),
+                    required: true,
+                    validate: function (value) {
+                        if (!value || value === '-Select-') return 'Bitte eine Option auswählen.';
+                        return '';
+                    }
+                },
+                SingleLine: {
+                    el: $('[name="SingleLine"]'),
+                    err: document.getElementById('SingleLine_error'),
+                    required: true,
+                    validate: function (value) {
+                        if (!value.trim()) return 'Dieses Feld ist erforderlich.';
+                        if (value.trim().length < 3) return 'Mindestens 3 Zeichen erforderlich.';
+                        return '';
+                    }
+                },
+                MultiLine: {
+                    el: $('[name="MultiLine"]'),
+                    err: document.getElementById('MultiLine_error'),
+                    required: false,
+                    validate: function (value) {
+                        if (!value.trim()) return '';
+                        if (value.trim().length < 5) return 'Mindestens 5 Zeichen erforderlich.';
+                        return '';
+                    }
+                }
+            };
 
-			function showError(fieldCfg, message) {
-				if (!fieldCfg || !fieldCfg.el) return;
-				if (fieldCfg.err) {
-					fieldCfg.err.textContent = message || '';
-					fieldCfg.err.style.display = message ? 'block' : 'none';
-				}
-				fieldCfg.el.setAttribute('aria-invalid', message ? 'true' : 'false');
-				fieldCfg.el.classList.toggle('is-invalid', !!message);
-				fieldCfg.el.classList.toggle('is-valid', !message && fieldCfg.el.value.trim().length > 0);
-			}
+            function showError(fieldCfg, message) {
+                if (!fieldCfg || !fieldCfg.el) return;
+                if (fieldCfg.err) {
+                    fieldCfg.err.textContent = message || '';
+                    fieldCfg.err.style.display = message ? 'block' : 'none';
+                }
+                fieldCfg.el.setAttribute('aria-invalid', message ? 'true' : 'false');
+                fieldCfg.el.classList.toggle('is-invalid', !!message);
+                fieldCfg.el.classList.toggle('is-valid', !message && fieldCfg.el.value.trim().length > 0);
+            }
 
-			function validateField(key) {
-				var cfg = fields[key];
-				if (!cfg || !cfg.el) return true;
-				var val = cfg.el.value || '';
-				var message = cfg.validate ? cfg.validate(val) : '';
-				showError(cfg, message);
-				return !message;
-			}
+            function validateField(key) {
+                var cfg = fields[key];
+                if (!cfg || !cfg.el) return true;
+                var val = cfg.el.value || '';
+                var message = cfg.validate ? cfg.validate(val) : '';
+                showError(cfg, message);
+                return !message;
+            }
 
-			function attachListeners() {
-				Object.keys(fields).forEach(function (key) {
-					var cfg = fields[key];
-					if (!cfg.el) return;
-					var handler = function () { validateField(key); };
-					cfg.el.addEventListener('input', handler);
-					cfg.el.addEventListener('blur', handler);
-					if (cfg.el.tagName === 'SELECT') {
-						cfg.el.addEventListener('change', handler);
-					}
-				});
-			}
+            function attachListeners() {
+                Object.keys(fields).forEach(function (key) {
+                    var cfg = fields[key];
+                    if (!cfg.el) return;
+                    var handler = function () { validateField(key); };
+                    cfg.el.addEventListener('input', handler);
+                    cfg.el.addEventListener('blur', handler);
+                    if (cfg.el.tagName === 'SELECT') {
+                        cfg.el.addEventListener('change', handler);
+                    }
+                });
+            }
 
-			function validateAllRequired() {
-				var allValid = true;
-				Object.keys(fields).forEach(function (key) {
-					var cfg = fields[key];
-					if (!cfg || !cfg.el) return;
-					if (cfg.required || (cfg.el.value && cfg.el.value.trim().length > 0)) {
-						var ok = validateField(key);
-						if (!ok) allValid = false;
-					}
-				});
-				return allValid;
-			}
+            function validateAllRequired() {
+                var allValid = true;
+                Object.keys(fields).forEach(function (key) {
+                    var cfg = fields[key];
+                    if (!cfg || !cfg.el) return;
+                    if (cfg.required || (cfg.el.value && cfg.el.value.trim().length > 0)) {
+                        var ok = validateField(key);
+                        if (!ok) allValid = false;
+                    }
+                });
+                return allValid;
+            }
 
-			attachListeners();
+            attachListeners();
 
-			/* */
-			form.addEventListener('submit', function () {
-				validateAllRequired();
-			}, true);
-		})();
-	</script>
+            /* */
+            form.addEventListener('submit', function () {
+                validateAllRequired();
+            }, true);
+        })();
+    </script>
 </body>
+
 </html>
