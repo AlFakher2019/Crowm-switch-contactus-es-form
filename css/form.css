@@ -175,9 +175,7 @@ ul {
   background: rgb(255, 255, 255);
 }
 .zf-templateWidth {
-  margin:auto;
-  padding: 0px 20px;
-  max-width: 1080px;
+  
   width: 100%;
   box-sizing: border-box;
 }
@@ -1975,4 +1973,29 @@ em {
   .zf-tempFrmWrapper.zf-decesion .zf-labelName {
   margin-left: 8px !important;
 }
+
+@media (max-width: 768px) {
+  /* Ensure consistent vertical spacing between all form fields */
+  .zf-tempFrmWrapper {
+    padding: 16px 0 0 !important;
+  }
+  
+  /* Add consistent bottom margin to grid columns in mobile */
+  .zftwoColumn .zfCol,
+  .zfthreeColumn .zfCol {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Ensure grid wrapper fields have same spacing as regular fields */
+  .zfgrid_Wrapper {
+    margin: 0 !important;
+  }
+  
+  /* Fix the specific spacing issue between name fields and other fields */
+  .zfgrid_Wrapper + .zfgrid_Wrapper,
+  .zfgrid_Wrapper + .zf-tempFrmWrapper {
+    margin-top: 0 !important;
+  }
 }
+}
+
